@@ -8,16 +8,17 @@ class PostContainer extends React.Component {
       super(props);
       this.state = {
       };
+      this.blogPosts = [];
     }
-    blogPosts;
     componentDidMount(){
-        axios.get('http://localhost:4000/api/post')
-        .then( result =>blogPosts=result.blogPosts)
+        this.blogPosts = axios.get('http://localhost:4000/api/post')
+        .then( result => {return result})
+
     }
 
     render(){
 
-        const posts = this.state.blogPosts;
+        const posts = this.blogPosts;
         return (
             <div>
             <Grid>
@@ -27,7 +28,7 @@ class PostContainer extends React.Component {
                 <Col md={8}>
                     { posts!= undefined &&
                     posts.map( ({id,title,tags,content,author,comment},index) => (
-                        <p>{title}</p>
+                        <p>a</p>
                     ))}
                     {/* <ReviewForm /> */}
                 </Col>
