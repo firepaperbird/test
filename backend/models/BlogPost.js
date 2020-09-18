@@ -3,13 +3,12 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 const BlogPostSchema = new Schema({
     title: String,
-    author: String,
+    author: Number,
     tags: Array,
     content: String,
     comment:Array,
-    created:String,
     deleted:Boolean,
-},{ timestamps: true });
+},{ timestamps: {createdAt:'created',updatedAt:'updated'} });
 
 BlogPostSchema.methods.toJSON = function () {
     return {
