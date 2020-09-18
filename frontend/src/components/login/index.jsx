@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import Store from '../../util/store'
 
+
+@connect(({ user }) => ({ user }))
 class Login extends React.Component {
   constructor(props) {
     super(props);
